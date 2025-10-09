@@ -1,47 +1,47 @@
 import 'package:flutter/material.dart';
+import '../../features/auth/presentation/pages/splach_screen.dart';
 import 'app_routes.dart';
 
 class AppRouter {
-  static final Map<String, WidgetBuilder> _routes = {
-    // AppRoutes.Splash: (_) => SplashScreen(),
-    AppRoutes.Home: (_) => HomeScreen(),
-    // AppRoutes.Login: (_) => LoginScreen(),
-    // AppRoutes.Register: (_) => RegisterScreen(),
-    // AppRoutes.Profile: (_) => ProfileScreen(),
-    // AppRoutes.Cart: (_) => CartScreen(),
-  };
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case AppRoutes.splashRoute:
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
+      //
+      // case AppRoutes.homeRoute:
+      //   return MaterialPageRoute(builder: (_) => ProductsPage()); // أو HomeScreen() إذا فضلت الاسم ده
+      //
+      // case AppRoutes.loginRoute:
+      // // return MaterialPageRoute(builder: (_) => const LoginScreen());
 
-  // static Route<dynamic> generateRoute(RouteSettings settings) {
-  //   if (settings.name == AppRoutes.ProductDetails) {
-  //     final String productId = settings.arguments as String;
-  //     return MaterialPageRoute(builder: (_) => ProductDetailsScreen(productId: productId));
-  //   }
-  //
-  //   if (settings.name == AppRoutes.OrderDetails) {
-  //     final String orderId = settings.arguments as String;
-  //     return MaterialPageRoute(builder: (_) => OrderDetailsScreen(orderId: orderId));
-  //   }
-  //
-  //   final builder = _routes[settings.name];
-  //   if (builder != null) {
-  //     return MaterialPageRoute(builder: builder);
-  //   }
-  //
-  //   return MaterialPageRoute(
-  //     builder: (_) => Scaffold(
-  //       body: Center(
-  //         child: Text('No route defined for ${settings.name}'),
-  //       ),
-  //     ),
-  //   );
-}
+      //
+      // case AppRoutes.registerRoute:
+      // // return MaterialPageRoute(builder: (_) => const RegisterScreen());
 
-// Example placeholder screen
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+      //
+      // case AppRoutes.profileRoute:
+      // // return MaterialPageRoute(builder: (_) => const ProfileScreen());
 
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
+      //
+      // case AppRoutes.cartRoute:
+      // // return MaterialPageRoute(builder: (_) => const CartScreen());
+
+      //
+      // case AppRoutes.productDetailsRoute:
+      //   final String productId = settings.arguments as String;
+      //   // return MaterialPageRoute(builder: (_) => ProductDetailsScreen(productId: productId));
+
+      //
+      // case AppRoutes.orderDetailsRoute:
+      //   final String orderId = settings.arguments as String;
+      //   // return MaterialPageRoute(builder: (_) => OrderDetailsScreen(orderId: orderId));
+
+      default:
+        return MaterialPageRoute(
+          builder: (_) => const Scaffold(
+            body: Center(child: Text('No route defined for this path')),
+          ),
+        );
+    }
   }
 }
