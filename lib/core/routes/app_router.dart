@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/products/views/main_layout.dart';
 import 'package:flutter/material.dart';
 import '../../features/auth/presentation/pages/splach_screen.dart';
 import 'app_routes.dart';
@@ -7,10 +8,10 @@ class AppRouter {
     switch (settings.name) {
       case AppRoutes.splashRoute:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
-      //
-      // case AppRoutes.homeRoute:
-      //   return MaterialPageRoute(builder: (_) => ProductsPage()); // أو HomeScreen() إذا فضلت الاسم ده
-      //
+
+      case AppRoutes.MainLayoutRoute:
+        return MaterialPageRoute(builder: (_) => MainLayout());
+
       // case AppRoutes.loginRoute:
       // // return MaterialPageRoute(builder: (_) => const LoginScreen());
 

@@ -174,9 +174,9 @@ class AppTheme {
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.surface,
-        selectedItemColor: AppColors.accent,
-        unselectedItemColor: AppColors.mutedForeground,
-        elevation: 0,
+        selectedItemColor: AppColors.primary,
+        unselectedItemColor: AppColors.secondary,
+        elevation: 1,
         type: BottomNavigationBarType.fixed,
       ),
     );
