@@ -2,6 +2,8 @@ import 'package:ecommerce_app/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import '../../../../core/routes/app_routes.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -18,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void loading() async {
     await Future.delayed(const Duration(seconds: 2));
-    // Navigator.pushReplacementNamed(context, AppRoutes.loginRoute);
+    Navigator.pushReplacementNamed(context, AppRoutes.MainLayoutRoute);
   }
 
   @override
