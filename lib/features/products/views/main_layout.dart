@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/products/views/product_screen.dart';
+import 'package:ecommerce_app/features/products/views/pages/product_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/custom_app_bar.dart';
 import '../../../core/widgets/custom_bottom_nav_bar.dart';
@@ -48,14 +48,6 @@ class _MainLayoutState extends State<MainLayout> {
     const SearchView(),
     const CartView(),
     const ProfileView(),
-  ];
-
-  final List<String> _pageTitles = [
-    'StyleShop',
-    'Categories',
-    'Search',
-    'My Cart',
-    'Profile',
   ];
 
   void _onTabTapped(int index) {
