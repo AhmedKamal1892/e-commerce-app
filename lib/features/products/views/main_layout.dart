@@ -50,14 +50,6 @@ class _MainLayoutState extends State<MainLayout> {
     const ProfileView(),
   ];
 
-  final List<String> _pageTitles = [
-    'StyleShop',
-    'Categories',
-    'Search',
-    'My Cart',
-    'Profile',
-  ];
-
   void _onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
