@@ -14,38 +14,42 @@ class HomePage extends StatelessWidget {
       ProductModel(
         id: '1',
         name: 'Premium T-Shirt',
-        imageUrl: 'url1',
+        imageUrl:
+            'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387',
         price: 29.99,
         rating: 4.8,
-        description: '',
-        category: '',
+        description: 'High-quality black t-shirt made from premium cotton.',
+        category: 'Men',
       ),
       ProductModel(
         id: '2',
         name: 'Classic Sneaker',
-        imageUrl: 'url2',
+        imageUrl:
+            'https://images.unsplash.com/photo-1739444929249-5af4d61276a9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=871',
         price: 89.99,
         rating: 4.6,
-        description: '',
-        category: '',
+        description: 'Timeless white sneakers for everyday comfort.',
+        category: 'Footwear',
       ),
       ProductModel(
         id: '5',
         name: 'Leather Boots',
-        imageUrl: 'url5',
+        imageUrl:
+            'https://images.unsplash.com/photo-1599012307605-23a0ebe4d321?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387',
         price: 120.00,
         rating: 4.9,
-        description: '',
-        category: '',
+        description: 'Durable and stylish leather boots for all seasons.',
+        category: 'Footwear',
       ),
       ProductModel(
         id: '6',
         name: 'Casual Hat',
-        imageUrl: 'url6',
+        imageUrl:
+            'https://images.unsplash.com/photo-1720303671404-dd4b5b71cd91?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387',
         price: 25.50,
         rating: 4.3,
-        description: '',
-        category: '',
+        description: 'Comfortable and trendy casual hat.',
+        category: 'Accessories',
       ),
     ];
 
@@ -53,73 +57,86 @@ class HomePage extends StatelessWidget {
       ProductModel(
         id: '3',
         name: 'Summer Dress',
-        imageUrl: 'url3',
+        imageUrl:
+            'https://images.unsplash.com/photo-1568381478053-82d1ba959b6c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387',
         price: 49.99,
+        oldPrice: 69.99,
         rating: 4.5,
-        description: '',
-        category: '',
+        description: 'Light and airy summer dress perfect for sunny days.',
+        category: 'Women',
       ),
       ProductModel(
         id: '4',
         name: 'Men\'s Jacket',
-        imageUrl: 'url4',
+        imageUrl:
+            'https://images.unsplash.com/photo-1715608720717-ac3d1b638e44?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=385',
         price: 115.20,
+        oldPrice: 150.00,
         rating: 4.7,
-        description: '',
-        category: '',
+        description: 'Stylish and warm jacket for men.',
+        category: 'Men',
       ),
       ProductModel(
         id: '7',
         name: 'Sports Watch',
-        imageUrl: 'url7',
+        imageUrl:
+            'https://images.unsplash.com/photo-1669480380743-f76990b9bc44?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774',
         price: 199.99,
+        oldPrice: 249.99,
         rating: 4.4,
-        description: '',
-        category: '',
+        description: 'Advanced sports watch with fitness tracking features.',
+        category: 'Electronics',
       ),
       ProductModel(
         id: '8',
         name: 'Running Shoes',
-        imageUrl: 'url8',
+        imageUrl:
+            'https://images.unsplash.com/photo-1597892657493-6847b9640bac?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387', // Running Shoes
         price: 75.00,
+        oldPrice: 95.00,
         rating: 4.6,
-        description: '',
-        category: '',
+        description: 'Lightweight and comfortable running shoes.',
+        category: 'Footwear',
       ),
     ];
+
     final List<ProductModel> featuredProducts = [
       ProductModel(
-        id: '8',
+        id: '9',
         name: 'Luxury Watch',
-        description: 'desc',
-        imageUrl: 'https://via.placeholder.com/150',
+        description: 'Elegant timepiece for a sophisticated look.',
+        imageUrl:
+            'https://images.unsplash.com/photo-1634140704051-58a787556cd1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774', // Luxury Watch
         price: 250.00,
         rating: 4.9,
         category: 'Accessories',
       ),
       ProductModel(
-        id: '9',
+        id: '10',
         name: 'Designer Handbag',
-        description: 'desc',
-        imageUrl: 'https://via.placeholder.com/150',
+        description: 'Stylish handbag for women, perfect for any occasion.',
+        imageUrl:
+            'https://images.unsplash.com/photo-1601924921557-45e6dea0a157?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870', // Designer Handbag
         price: 180.00,
         rating: 4.7,
         category: 'Women',
       ),
       ProductModel(
-        id: '10',
+        id: '11',
         name: 'Gaming Headset',
-        description: 'desc',
-        imageUrl: 'https://via.placeholder.com/150',
+        description: 'Immersive gaming experience with superior sound quality.',
+        imageUrl:
+            'https://images.unsplash.com/photo-1660391532247-4a8ad1060817?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=581',
         price: 75.00,
         rating: 4.5,
         category: 'Electronics',
       ),
       ProductModel(
-        id: '11',
+        id: '12',
         name: 'Smart Fitness Tracker',
-        description: 'desc',
-        imageUrl: 'https://via.placeholder.com/150',
+        description: 'Track your health and fitness goals with ease.',
+        imageUrl:
+            'https://plus.unsplash.com/premium_photo-1712761997182-45455a50d8c4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870', // Smart Fitness Tracker
         price: 50.00,
         rating: 4.4,
         category: 'Electronics',
@@ -129,7 +146,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: theme.colorScheme.surface,
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppConstants.paddingM,
+          vertical: AppConstants.paddingL,
+        ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -146,7 +166,7 @@ class HomePage extends StatelessWidget {
                   color: AppColors.accent,
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: AppConstants.paddingXL,
+                      horizontal: AppConstants.paddingL,
                       vertical: AppConstants.paddingL,
                     ),
                     child: Column(

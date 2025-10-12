@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../features/products/models/product_model.dart';
 import '../theme/app_theme.dart';
+import 'image_placeholder_shimmer.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel product;
@@ -35,12 +37,14 @@ class ProductCard extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Image.network(
-                    product.imageUrl,
+                  CachedNetworkImage(
+                    imageUrl: product.imageUrl,
                     height: 150,
                     width: double.infinity,
                     fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
+                    placeholder: (context, url) =>
+                        const ImagePlaceholderShimmer(),
+                    errorWidget: (context, url, error) {
                       return const SizedBox(
                         height: 150,
                         child: Center(child: Icon(Icons.error)),
