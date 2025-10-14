@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/features/products/views/main_layout.dart';
+import 'package:ecommerce_app/features/products/views/pages/product_screen.dart';
 import 'package:flutter/material.dart';
 import '../../features/auth/presentation/pages/splach_screen.dart';
 import 'app_routes.dart';
@@ -12,6 +13,13 @@ class AppRouter {
       case AppRoutes.MainLayoutRoute:
         return MaterialPageRoute(builder: (_) => MainLayout());
 
+      case AppRoutes.productsRoute:
+        return MaterialPageRoute(
+          builder: (context) {
+            final categoryName = settings.arguments.toString();
+            return ProductScreen(categoryName: categoryName,);
+          },
+        );
       // case AppRoutes.loginRoute:
       // // return MaterialPageRoute(builder: (_) => const LoginScreen());
 

@@ -1,15 +1,11 @@
-import 'package:ecommerce_app/features/products/views/pages/product_screen.dart';
+import 'package:ecommerce_app/features/products/views/pages/category_screen.dart';
+import 'package:ecommerce_app/features/products/views/pages/home_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../core/widgets/custom_app_bar.dart';
 import '../../../core/widgets/custom_bottom_nav_bar.dart';
 import '../../../core/widgets/custom_drawer.dart';
 
-class CategoriesView extends StatelessWidget {
-  const CategoriesView({super.key});
-  @override
-  Widget build(BuildContext context) =>
-      const Scaffold(body: Center(child: Text('Categories Page')));
-}
+
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
