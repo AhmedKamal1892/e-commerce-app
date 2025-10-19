@@ -33,6 +33,9 @@ dependencies:
   # State Management & Services
   provider: ^6.1.2
 
+  # Local Storage
+  sqflite: ^2.4.2
+  path_provider: ^2.1.5
 
   # Firebase
   firebase_core: ^4.1.1
