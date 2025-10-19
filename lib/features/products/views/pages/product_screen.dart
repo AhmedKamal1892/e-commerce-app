@@ -1,311 +1,271 @@
 import 'package:ecommerce_app/core/theme/app_theme.dart';
+import 'package:ecommerce_app/core/widgets/product_card.dart';
+import 'package:ecommerce_app/features/products/models/product_model.dart';
 import 'package:flutter/material.dart';
 
-import '../../models/product_model.dart';
-import '../widgets/featured_products.dart';
-import '../widgets/product_section.dart';
+class ProductScreen extends StatefulWidget {
+  final String categoryName;
+  const ProductScreen({super.key, required this.categoryName});
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  @override
+  State<ProductScreen> createState() => _ProductScreenState();
+}
+
+class _ProductScreenState extends State<ProductScreen> {
+  List<ProductModel> productsList = [
+    ProductModel(
+      id: '0',
+      name: 'Cotton T-shirt Regular Fit',
+      description:
+          'T-shirt in soft cotton jersey. Regular Fit.Article Number0685816290Age GroupAdultPresentation Product TypeT-shirt',
+      imageUrl:
+          'https://media.alshaya.com/adobe/assets/urn:aaid:aem:86ca5dfc-aa8a-4393-bbc2-a2faaa86ff53/as/EID-25c4e18f4568fa8617accca0a7a18c67fa969dce.jpg?preferwebp=true&width=1024&auto=webp ',
+      price: 9.99,
+      rating: 4.6,
+      category: 'Shirts & Tops',
+    ),
+    ProductModel(
+      id: '1',
+      name: 'Cotton T-shirt Regular Fit',
+      description:
+          'T-shirt in soft cotton jersey. Regular Fit.Article Number0685816290Age GroupAdultPresentation Product TypeT-shirt',
+      imageUrl:
+          'https://media.alshaya.com/adobe/assets/urn:aaid:aem:86ca5dfc-aa8a-4393-bbc2-a2faaa86ff53/as/EID-25c4e18f4568fa8617accca0a7a18c67fa969dce.jpg?preferwebp=true&width=1024&auto=webp ',
+      price: 29.99,
+      rating: 4.8,
+      category: 'Shirts & Tops',
+    ),
+    ProductModel(
+      id: '2',
+      name: 'Cotton T-shirt Regular Fit',
+      description:
+          'T-shirt in soft cotton jersey. Regular Fit.Article Number0685816290Age GroupAdultPresentation Product TypeT-shirt',
+      imageUrl:
+          'https://media.alshaya.com/adobe/assets/urn:aaid:aem:86ca5dfc-aa8a-4393-bbc2-a2faaa86ff53/as/EID-25c4e18f4568fa8617accca0a7a18c67fa969dce.jpg?preferwebp=true&width=1024&auto=webp ',
+      price: 39.99,
+      rating: 4.5,
+      category: 'Shirts & Tops',
+    ),
+    ProductModel(
+      id: '3',
+      name: 'Cotton T-shirt Regular Fit',
+      description:
+          'T-shirt in soft cotton jersey. Regular Fit.Article Number0685816290Age GroupAdultPresentation Product TypeT-shirt',
+      imageUrl:
+          'https://media.alshaya.com/adobe/assets/urn:aaid:aem:86ca5dfc-aa8a-4393-bbc2-a2faaa86ff53/as/EID-25c4e18f4568fa8617accca0a7a18c67fa969dce.jpg?preferwebp=true&width=1024&auto=webp ',
+      price: 49.99,
+      rating: 4.7,
+      category: 'Shirts & Tops',
+    ),
+  ];
+  bool largeView = false;
+  bool filterView = false;
+  List<ProductModel> filteredProducts = [];
+  late final TextEditingController productSearch;
+
+  @override
+  void initState() {
+    productSearch = TextEditingController();
+    filteredProducts = List.from(productsList);
+    super.initState();
+  }
+
+  void filteredProductsShown(String value) {
+    print(filteredProducts);
+    filteredProducts = productsList.where((product) {
+      final productName = product.name.toLowerCase();
+      return value.isEmpty || productName.contains(value.toLowerCase());
+    }).toList();
+    print(filteredProducts);
+  }
 
   @override
   Widget build(BuildContext context) {
-    final List<ProductModel> recommendedProducts = [
-      ProductModel(
-        id: '1',
-        name: 'Premium T-Shirt',
-        imageUrl: 'url1',
-        price: 29.99,
-        rating: 4.8,
-        description: '',
-        category: '',
-      ),
-      ProductModel(
-        id: '2',
-        name: 'Classic Sneaker',
-        imageUrl: 'url2',
-        price: 89.99,
-        rating: 4.6,
-        description: '',
-        category: '',
-      ),
-      ProductModel(
-        id: '5',
-        name: 'Leather Boots',
-        imageUrl: 'url5',
-        price: 120.00,
-        rating: 4.9,
-        description: '',
-        category: '',
-      ),
-      ProductModel(
-        id: '6',
-        name: 'Casual Hat',
-        imageUrl: 'url6',
-        price: 25.50,
-        rating: 4.3,
-        description: '',
-        category: '',
-      ),
-    ];
-
-    final List<ProductModel> onSaleProducts = [
-      ProductModel(
-        id: '3',
-        name: 'Summer Dress',
-        imageUrl: 'url3',
-        price: 49.99,
-        rating: 4.5,
-        description: '',
-        category: '',
-      ),
-      ProductModel(
-        id: '4',
-        name: 'Men\'s Jacket',
-        imageUrl: 'url4',
-        price: 115.20,
-        rating: 4.7,
-        description: '',
-        category: '',
-      ),
-      ProductModel(
-        id: '7',
-        name: 'Sports Watch',
-        imageUrl: 'url7',
-        price: 199.99,
-        rating: 4.4,
-        description: '',
-        category: '',
-      ),
-      ProductModel(
-        id: '8',
-        name: 'Running Shoes',
-        imageUrl: 'url8',
-        price: 75.00,
-        rating: 4.6,
-        description: '',
-        category: '',
-      ),
-    ];
-    final List<ProductModel> featuredProducts = [
-      ProductModel(
-        id: '8',
-        name: 'Luxury Watch',
-        description: 'desc',
-        imageUrl: 'https://via.placeholder.com/150',
-        price: 250.00,
-        rating: 4.9,
-        category: 'Accessories',
-      ),
-      ProductModel(
-        id: '9',
-        name: 'Designer Handbag',
-        description: 'desc',
-        imageUrl: 'https://via.placeholder.com/150',
-        price: 180.00,
-        rating: 4.7,
-        category: 'Women',
-      ),
-      ProductModel(
-        id: '10',
-        name: 'Gaming Headset',
-        description: 'desc',
-        imageUrl: 'https://via.placeholder.com/150',
-        price: 75.00,
-        rating: 4.5,
-        category: 'Electronics',
-      ),
-      ProductModel(
-        id: '11',
-        name: 'Smart Fitness Tracker',
-        description: 'desc',
-        imageUrl: 'https://via.placeholder.com/150',
-        price: 50.00,
-        rating: 4.4,
-        category: 'Electronics',
-      ),
-    ];
     final theme = Theme.of(context);
     return Scaffold(
-      backgroundColor: theme.colorScheme.surface,
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: SingleChildScrollView(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width: double.infinity,
-                height: 175,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      AppConstants.borderRadius,
-                    ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(Icons.arrow_back_ios_new),
+                      ),
+                      Text(
+                        widget.categoryName,
+                        style: TextStyle(
+                          color: AppColors.foreground,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
                   ),
-                  color: AppColors.accent,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: AppConstants.paddingXL,
-                      vertical: AppConstants.paddingL,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            largeView = !largeView;
+                          });
+                        },
+                        icon: const Icon(Icons.format_list_bulleted),
+                      ),
+                      const SizedBox(width: 10),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            filterView = !filterView;
+                          });
+                        },
+                        icon: const Icon(Icons.filter_alt_outlined),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              TextField(
+                onChanged: (value) {
+                  setState(() {
+                    filteredProductsShown(value);
+                  });
+                },
+                onSubmitted: (value) => FocusScope.of(context).unfocus(),
+                controller: productSearch,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search, color: AppColors.secondary),
+                  hintText: widget.categoryName,
+                  hintStyle: TextStyle(color: AppColors.secondary),
+                ),
+              ),
+              const SizedBox(height: 10),
+              //filter bar,
+              (!filterView)
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
                           children: [
-                            Text(
-                              'Special Offers',
-                              style: theme.textTheme.displayMedium,
+                            TextButton(
+                              onPressed:
+                                  // on favourite implement
+                                  () {},
+                              child: Text('Popular'),
+                              style: TextButton.styleFrom(
+                                backgroundColor: AppColors.surface2.withAlpha(
+                                  200,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(24),
+                                ),
+                                textStyle: theme.textTheme.labelLarge,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: AppConstants.paddingXXL,
+                                  vertical: AppConstants.paddingL,
+                                ),
+                              ),
                             ),
-                            Spacer(),
-                            IconButton(
+                            InkWell(
+                              child: TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    filteredProducts.sort((product1, product2) {
+                                      return product1.price.compareTo(
+                                        product2.price,
+                                      );
+                                    });
+                                  });
+                                },
+                                child: Text('Price: Low to High'),
+                                style: TextButton.styleFrom(
+                                  backgroundColor: AppColors.surface2.withAlpha(
+                                    200,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(24),
+                                  ),
+                                  textStyle: theme.textTheme.labelLarge,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: AppConstants.paddingXXL,
+                                    vertical: AppConstants.paddingL,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            TextButton(
                               onPressed: () {
-                                // Close the card
-                                Navigator.of(context).pop();
+                                setState(() {
+                                  filteredProducts.sort((product1, product2) {
+                                    return product2.price.compareTo(
+                                      product1.price,
+                                    );
+                                  });
+                                });
                               },
-                              icon: Icon(
-                                Icons.close,
-                                color: AppColors.accentForeground,
-                                size: 18,
+                              child: Text('Price: High to Low'),
+                              style: TextButton.styleFrom(
+                                backgroundColor: AppColors.surface2.withAlpha(
+                                  200,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(24),
+                                ),
+                                textStyle: theme.textTheme.labelLarge,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: AppConstants.paddingXXL,
+                                  vertical: AppConstants.paddingL,
+                                ),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  filteredProducts.sort((product1, product2) {
+                                    return product1.rating.compareTo(
+                                      product2.rating,
+                                    );
+                                  });
+                                });
+                              },
+                              child: Text('Rating'),
+                              style: TextButton.styleFrom(
+                                backgroundColor: AppColors.surface2.withAlpha(
+                                  200,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(24),
+                                ),
+                                textStyle: theme.textTheme.labelLarge,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: AppConstants.paddingXXL,
+                                  vertical: AppConstants.paddingL,
+                                ),
                               ),
                             ),
                           ],
                         ),
-                        Text(
-                          'Up to 50% off on selected items',
-                          style: theme.textTheme.bodyMedium?.copyWith(
-                            color: AppColors.accentForeground,
-                          ),
-                        ),
-                        SizedBox(height: 16),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.accentForeground,
-                            foregroundColor: AppColors.accent,
-                          ),
-                          child: Text(
-                            'Shop Now',
-                            style: theme.elevatedButtonTheme.style?.textStyle
-                                ?.resolve({}),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    )
+                  : const SizedBox(height: 5),
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: (largeView) ? 1 : 2,
+                    childAspectRatio: (largeView) ? 1 : 0.6,
                   ),
+                  itemCount: filteredProducts.length,
+                  itemBuilder: (context, index) {
+                    return ProductCard(product: filteredProducts[index]);
+                  },
                 ),
-              ),
-              SizedBox(height: 16),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Mens'),
-                      style: TextButton.styleFrom(
-                        backgroundColor: AppColors.surface2.withAlpha(200),
-                        foregroundColor: AppColors.foreground,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(24),
-                        ),
-                        textStyle: theme.textTheme.labelLarge,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: AppConstants.paddingXXL,
-                          vertical: AppConstants.paddingL,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Womens'),
-                      style: TextButton.styleFrom(
-                        backgroundColor: AppColors.surface2.withAlpha(200),
-                        foregroundColor: AppColors.foreground,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(24),
-                        ),
-                        textStyle: theme.textTheme.labelLarge,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: AppConstants.paddingXXL,
-                          vertical: AppConstants.paddingL,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Kids'),
-                      style: TextButton.styleFrom(
-                        backgroundColor: AppColors.surface2.withAlpha(200),
-                        foregroundColor: AppColors.foreground,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(24),
-                        ),
-                        textStyle: theme.textTheme.labelLarge,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: AppConstants.paddingXXL,
-                          vertical: AppConstants.paddingL,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('News'),
-                      style: TextButton.styleFrom(
-                        backgroundColor: AppColors.surface2.withAlpha(200),
-                        foregroundColor: AppColors.foreground,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(24),
-                        ),
-                        textStyle: theme.textTheme.labelLarge,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: AppConstants.paddingXXL,
-                          vertical: AppConstants.paddingL,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Sports'),
-                      style: TextButton.styleFrom(
-                        backgroundColor: AppColors.surface2.withAlpha(200),
-                        foregroundColor: AppColors.foreground,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(24),
-                        ),
-                        textStyle: theme.textTheme.labelLarge,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: AppConstants.paddingXXL,
-                          vertical: AppConstants.paddingL,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 24),
-              ProductSection(
-                title: 'Recommended for you',
-                products: recommendedProducts,
-                onSeeAll: () {},
-              ),
-              const SizedBox(height: 24),
-              ProductSection(
-                title: 'On Sale',
-                products: onSaleProducts,
-                onSeeAll: () {},
-              ),
-
-              const SizedBox(height: 24),
-
-              FeaturedProductsSection(
-                title: 'Featured Products',
-                products: featuredProducts,
               ),
             ],
           ),
