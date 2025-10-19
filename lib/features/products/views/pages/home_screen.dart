@@ -223,7 +223,23 @@ class HomePage extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: () {},
+                      style: TextButton.styleFrom(
+                        backgroundColor: AppColors.surface2.withAlpha(200),
+                        foregroundColor: AppColors.foreground,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                        textStyle: theme.textTheme.labelLarge,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: AppConstants.paddingXXL,
+                          vertical: AppConstants.paddingL,
+                        ),
+                      ),
                       child: Text('Mens'),
+                    ),
+                    SizedBox(width: 8),
+                    TextButton(
+                      onPressed: () {},
                       style: TextButton.styleFrom(
                         backgroundColor: AppColors.surface2.withAlpha(200),
                         foregroundColor: AppColors.foreground,
@@ -236,11 +252,11 @@ class HomePage extends StatelessWidget {
                           vertical: AppConstants.paddingL,
                         ),
                       ),
-                    ),
-                    SizedBox(width: 8),
-                    TextButton(
-                      onPressed: () {},
                       child: Text('Womens'),
+                    ),
+                    SizedBox(width: 8),
+                    TextButton(
+                      onPressed: () {},
                       style: TextButton.styleFrom(
                         backgroundColor: AppColors.surface2.withAlpha(200),
                         foregroundColor: AppColors.foreground,
@@ -253,11 +269,11 @@ class HomePage extends StatelessWidget {
                           vertical: AppConstants.paddingL,
                         ),
                       ),
-                    ),
-                    SizedBox(width: 8),
-                    TextButton(
-                      onPressed: () {},
                       child: Text('Kids'),
+                    ),
+                    SizedBox(width: 8),
+                    TextButton(
+                      onPressed: () {},
                       style: TextButton.styleFrom(
                         backgroundColor: AppColors.surface2.withAlpha(200),
                         foregroundColor: AppColors.foreground,
@@ -270,28 +286,11 @@ class HomePage extends StatelessWidget {
                           vertical: AppConstants.paddingL,
                         ),
                       ),
-                    ),
-                    SizedBox(width: 8),
-                    TextButton(
-                      onPressed: () {},
                       child: Text('News'),
-                      style: TextButton.styleFrom(
-                        backgroundColor: AppColors.surface2.withAlpha(200),
-                        foregroundColor: AppColors.foreground,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(24),
-                        ),
-                        textStyle: theme.textTheme.labelLarge,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: AppConstants.paddingXXL,
-                          vertical: AppConstants.paddingL,
-                        ),
-                      ),
                     ),
                     SizedBox(width: 8),
                     TextButton(
                       onPressed: () {},
-                      child: Text('Sports'),
                       style: TextButton.styleFrom(
                         backgroundColor: AppColors.surface2.withAlpha(200),
                         foregroundColor: AppColors.foreground,
@@ -304,6 +303,7 @@ class HomePage extends StatelessWidget {
                           vertical: AppConstants.paddingL,
                         ),
                       ),
+                      child: Text('Sports'),
                     ),
                   ],
                 ),
