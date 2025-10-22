@@ -72,49 +72,52 @@ class CategoriesView extends StatelessWidget {
                 itemCount: categories.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 5,
                 ),
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, AppRoutes.productsRoute,arguments: categories[index].name);
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.productsRoute,
+                        arguments: categories[index].name,
+                      );
                     },
-                    child: Card(
-                      clipBehavior: Clip.antiAlias,
-                      child: Stack(
-                        children: [
-                          Image.network(
-                            categories[index].imageUrl,
-                          ),
-                          Align(
-                            alignment: Alignment.bottomLeft,
-                            child: Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    categories[index].name,
-                                    style: 
-                                    TextStyle(
-                                      color: AppColors.foreground,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 10),
-                                  Text(
-                                    '${categories[index].CategoryNumber} items',
-                                    style: TextStyle(
-                                      color: AppColors.secondary,
-                                      fontSize: 12,
-                                    ),
-                                  ),
-                                ],
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(categories[index].imageUrl),
+                          fit: BoxFit.contain,
+                        ),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                categories[index].name,
+                                style: TextStyle(
+                                  color: AppColors.foreground,
+                                  fontSize: 15,
+                                ),
                               ),
-                            ),
+                              const SizedBox(height: 10),
+                              Text(
+                                '${categories[index].CategoryNumber} items',
+                                style: TextStyle(
+                                  color: AppColors.secondary,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   );
