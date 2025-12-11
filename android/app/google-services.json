@@ -26,9 +26,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:982401879467:android:6b15acd43e06332cd056ee",
+        "mobilesdk_app_id": "1:982401879467:android:96d85d6be3937d86d056ee",
         "android_client_info": {
-          "package_name": "com.example.ecommerceapp"
+          "package_name": "com.example.ecommerce_app"
         }
       },
       "oauth_client": [],

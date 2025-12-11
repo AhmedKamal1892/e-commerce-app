@@ -1,50 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:provider/provider.dart';
-import 'core/routes/app_router.dart';
-import 'core/routes/app_routes.dart';
-import 'core/theme/app_theme.dart';
-import 'features/address/providers/address_provider.dart';
-import 'features/cart/providers/cart_provider.dart';
-import 'features/favorites/providers/favorites_provider.dart';
-import 'features/orders/providers/orders_provider.dart';
-import 'features/payment/providers/payment_provider.dart';
-import 'features/products/providers/product_provider.dart';
-import 'features/products/providers/category_provider.dart';
-
-import 'features/search/providers/search_provider.dart';
 import 'firebase_options.dart';
+import 'screens/dashboard_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
-  runApp(const MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(const AdminApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class AdminApp extends StatelessWidget {
+  const AdminApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => ProductProvider()),
-        ChangeNotifierProvider(create: (_) => CategoryProvider()),
-        ChangeNotifierProvider(create: (_) => SearchProvider()),
-        ChangeNotifierProvider(create: (_) => CartProvider()),
-        ChangeNotifierProvider(create: (_) => FavoritesProvider()),
-        ChangeNotifierProvider(create: (_) => OrdersProvider()),
-        ChangeNotifierProvider(create: (_) => AddressProvider()),
-        ChangeNotifierProvider(create: (_) => PaymentProvider()),
-      ],
-      child: MaterialApp(
-        title: 'Fashion Store',
-        theme: AppTheme.darkTheme,
-        debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.splashRoute,
-        onGenerateRoute: AppRouter.generateRoute,
+    return MaterialApp(
+      title: 'Admin Panel',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.grey[100], // ✅ background for all screens
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF1E1E1E),
+          foregroundColor: Colors.white,
+        ),
       ),
+      home: const DashboardScreen(),
     );
   }
 }
