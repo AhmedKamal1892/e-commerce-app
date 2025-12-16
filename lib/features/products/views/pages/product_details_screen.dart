@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/theme/app_theme.dart';
+import '../../../../core/utils/Colors_Helper.dart';
 import '../../../../core/widgets/add_to_cart_bottom_sheet.dart';
 import '../../../cart/providers/cart_provider.dart';
 import '../../../favorites/providers/favorites_provider.dart';
@@ -22,11 +23,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   int? selectedColor;
   int quantity = 1;
 
-  final List<Color> colors = [Colors.black, Colors.white, Colors.grey];
-
+  late final List<Color> colors =
+  widget.product.color != null && widget.product.color!.isNotEmpty
+      ? widget.product.color!.map(colorFromName).toList()
+      : [Colors.black, Colors.white, Colors.grey];
   @override
   Widget build(BuildContext context) {
-    Uint8List imageBytes = base64Decode(widget.product.imageUrl);
+
     final bool onSale =
         widget.product.discount != null && widget.product.discount! > 0;
     final int discountPercentage = onSale
@@ -46,7 +49,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 Stack(
                   children: [
                     Image.memory(
-                      imageBytes,
+                      widget.product.imageBytes!,
                       width: double.infinity,
                       height: 400,
                       fit: BoxFit.cover,

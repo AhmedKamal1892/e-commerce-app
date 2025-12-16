@@ -172,13 +172,13 @@ class _CategoriesViewState extends State<CategoriesView> {
                                         textAlign: TextAlign.center,
                                       ),
                                       const SizedBox(height: 4),
-                                      Text(
-                                        '${category.productCount} items',
-                                        style: const TextStyle(
-                                          color: AppColors.mutedForeground,
-                                          fontSize: 12,
-                                        ),
-                                      ),
+                                      // Text(
+                                      //   '${category.productCount} items',
+                                      //   style: const TextStyle(
+                                      //     color: AppColors.mutedForeground,
+                                      //     fontSize: 12,
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                 ),

@@ -39,8 +39,8 @@ class ProductCard extends StatelessWidget {
               flex: 3,
               child: Stack(
                 children: [
-                  Image.network(
-                    product.imageUrl,
+                  Image.memory(
+                    product.imageBytes!,
                     width: double.infinity,
                     height: double.infinity,
                     fit: BoxFit.cover,

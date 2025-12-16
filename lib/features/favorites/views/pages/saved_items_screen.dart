@@ -170,7 +170,7 @@ class _SavedItemsScreenState extends State<SavedItemsScreen> {
     final bool onSale = product.discount != null && product.discount! > 0;
     final int discountPercentage = onSale ? product.discount!.toInt() : 0;
     final bool isOutOfStock = product.stock != null && product.stock! <= 0;
-    Uint8List imageBytes = base64Decode(product.imageUrl);
+    // Uint8List imageBytes = base64Decode(product.imageUrl);
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
@@ -200,7 +200,7 @@ class _SavedItemsScreenState extends State<SavedItemsScreen> {
                     topRight: Radius.circular(12),
                   ),
                   child: Image.memory(
-                  imageBytes,
+                    product.imageBytes!,
                   width: double.infinity,
                   height: 220,
                   fit: BoxFit.cover,

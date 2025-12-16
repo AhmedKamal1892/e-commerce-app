@@ -4,6 +4,9 @@ import '../../../../core/routes/app_routes.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/utils/auth_guard.dart';
 import '../../providers/cart_provider.dart';
+import 'dart:convert';
+import 'dart:typed_data';
+
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -201,8 +204,11 @@ class _CartScreenState extends State<CartScreen> {
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               itemCount: cartProvider.cartItems.length,
+
               itemBuilder: (context, index) {
+
                 final item = cartProvider.cartItems[index];
+
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 16),
                   child: Row(
@@ -210,8 +216,8 @@ class _CartScreenState extends State<CartScreen> {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
-                        child: Image.network(
-                          item.product.imageUrl,
+                        child: Image.memory(
+                          item.product.imageBytes!,
                           width: 80,
                           height: 80,
                           fit: BoxFit.cover,

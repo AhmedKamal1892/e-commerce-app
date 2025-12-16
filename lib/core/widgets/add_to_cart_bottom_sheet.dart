@@ -163,8 +163,8 @@ class AddToCartBottomSheet extends StatelessWidget {
                               // Product Image
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
-                                child: Image.network(
-                                  product.imageUrl,
+                                child: Image.memory(
+                                  product.imageBytes!,
                                   width: 80,
                                   height: 80,
                                   fit: BoxFit.cover,
