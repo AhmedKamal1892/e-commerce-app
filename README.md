@@ -1,16 +1,7 @@
 # ecommerce_app
 
-A new Flutter project.
+E-commerce app and the final Graduation project in DEPI , aims to simulate a real online clothing store. It
+includes all major e-commerce features such as product listing, categories, product details, wishlist, cart, and
+order management. Firebase is used as the secure backend for authentication, product storage, user profiles,
+and real-time upda
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
